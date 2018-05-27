@@ -270,4 +270,4 @@ elements.recipe.addEventListener('click', e => {
 });
 
 //test который позволяет использовать все наши методы нашего созданного класса
-window.l = new List();
+//window.l = new List();
