@@ -22,3 +22,10 @@ export const deleteItem = id => {
  const item = document.querySelector(`[data-itemid="${id}"`);
  if (item)item.parentElement.removeChild(item);
 };
+
+//Implementations
+//add new buttons
+export const deleteAllItems = () => {
+    const item = document.querySelectorAll('.shopping__item');
+    Array.from(item).forEach(el => el.parentElement.removeChild(el));//преобразуем в массив потом орудуем массивом
+};

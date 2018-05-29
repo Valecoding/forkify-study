@@ -28,4 +28,9 @@ export default class List{
         this.items.find(el => el.id === id).count=newCount;
     }
 
+    //Implementations
+    deleteAllItems(){
+        this.items.splice(0,this.items.length);
+    }
+
 }

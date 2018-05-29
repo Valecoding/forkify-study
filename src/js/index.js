@@ -183,9 +183,17 @@ elements.shopping.addEventListener('click', e => {
 
     // Handle the count update
     } else if (e.target.matches('.shopping__count-value')) {
-        const val = parseFloat(e.target.value, 10);
+        const val = parseFloat(e.target.value, 10);//Функция parseFloat() принимает строку в качестве аргумента и возвращает десятичное число (число с плавающей точкой)
         state.list.updateCount(id, val);
     }
+});
+//Implementations
+//Delete all items
+elements.delshoppingList.addEventListener('click', e => {
+//delete from state
+    state.list.deleteAllItems();
+    //delete from UI
+    listView.deleteAllItems();// console.log(state.list);
 });
 
 
