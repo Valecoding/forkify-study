@@ -1,3 +1,4 @@
+/*jslint es6:true*/
 import { elements } from "./base";
 //импорт стореонней библиотеки для преобразования чисел
 import { Fraction } from "fractional";
@@ -37,7 +38,7 @@ const createIngredient = ingredient => `
                             <span class="recipe__unit">${ingredient.unit}</span>
                             ${ingredient.ingredient}
                         </div>
-                    </li>   
+                    </li>
 `;
 export const renderRecipe = (recipe, isLiked) => {
     const markup = `

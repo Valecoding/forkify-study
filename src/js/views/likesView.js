@@ -9,7 +9,7 @@ export const toggleLikeBtn = isLiked => {
 
 //отображение скрытие иконки любимых рецептов при аличии/отсутствии любимых рецептов
 export const toggleLikeMenu = numLikes => {
-    elements.likesList.style.visibility = numLikes > 0 ? 'visible' : 'hidden';
+    elements.likesMenu.style.visibility = numLikes > 0 ? 'visible' : 'hidden';
 };
 
 export const renderLike = like => {
