@@ -213,7 +213,8 @@ elements.delAddshoppingList.addEventListener('click', e => {
 
         //add to UI
         // if(!document.querySelector('.btn-small').classList.contains('item__btn--delete')) listView.renderItemDeleteBtn();
-        listView.deleteItemDeleteBtn(); listView.renderItemDeleteBtn();
+        const el = document.querySelector('.item__btn--delete');
+        if (!el) listView.renderItemDeleteBtn();
         listView.renderItem(item);
         console.log(state.list);
     }
@@ -293,7 +294,8 @@ elements.recipe.addEventListener('click', e => {
 } else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
     //Add ingredients to list
     controlList();
-    listView.deleteItemDeleteBtn();listView.renderItemDeleteBtn();//Implementations добавляем сразу кнопку удалить все
+    const el = document.querySelector('.item__btn--delete');
+    if (!el) listView.renderItemDeleteBtn();//Implementations добавляем сразу кнопку удалить все
     } else if (e.target.matches('.recipe__love, .recipe__love *')){
     //Like controller
     controlLike();
