@@ -428,19 +428,38 @@
                 -->
             </ul>
             <!--Implementations-->
-            <button class="btn-small item__btn--add">
-                <svg class="search__icon">
-                    <use href="img/icons.svg#icon-shopping-cart"></use>
-                </svg>
-                <span>Add to list</span>
-            </button>
-            <button class="btn-small item__btn--delete" style="max-width: 190px;margin-left:auto;margin-right:auto;margin-top: 2rem;">
-                <svg class="search__icon">
-                    <use href="img/icons.svg#icon-circle-with-cross"></use>
-                </svg>
-                <span>delete all items</span>
-            </button>
-
+            <div class="implementations">
+                <div class="shopping__item--add">
+                    <div class="shopping__count--add">
+                        <input type="number" value="0.5" step="0.25" class="shopping__item--add__count">
+                        <input type="text" list="units" class="shopping__item--add__unit">
+                        <datalist id="units">
+                            <option value=""></option>
+                            <option value="tbsp"></option>
+                            <option value="oz"></option>
+                            <option value="tsp"></option>
+                            <option value="cup"></option>
+                            <option value="pound"></option>
+                            <option value="kg"></option>
+                            <option value="g"></option>
+                        </datalist>
+                        <!--<p>tbsp</p>-->
+                    </div>
+                    <input type="text" class="shopping__description--add" placeholder="Add item...">
+                </div>
+                <button class="btn-small item__btn--add" style="width: 100%; margin-top: -10px;">
+                    <svg class="search__icon">
+                        <use href="img/icons.svg#icon-shopping-cart"></use>
+                    </svg>
+                    <span>Add new item to list</span>
+                </button>
+                <!--<button class="btn-small item__btn&#45;&#45;delete" style="min-width: 190px; width: 100%;margin-left:auto;margin-right:auto;margin-top: 2rem;">-->
+                    <!--<svg class="search__icon">-->
+                        <!--<use href="img/icons.svg#icon-circle-with-cross"></use>-->
+                    <!--</svg>-->
+                    <!--<span>delete all items</span>-->
+                <!--</button>-->
+            </div>
             <div class="copyright">
                 &copy; by Jonas Schmedtmann. Powered by
                 <a href="http://food2fork.com" target="_blank" class="link">Food2Fork.com</a>.

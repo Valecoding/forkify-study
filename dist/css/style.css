@@ -450,7 +450,8 @@ body {
     padding: 1.3rem 0;
     border-bottom: 1px solid #F2EFEE;
     position: relative; }
-  .shopping__count {
+  .shopping__count,/*implementations*/
+  .shopping__count--add{
     flex: 0 0 7.5rem;
     padding: .4rem .5rem;
     border: 1px solid #F2EFEE;
@@ -459,7 +460,9 @@ body {
     cursor: pointer;
     display: flex;
     justify-content: space-between; }
-    .shopping__count input {
+    .shopping__count input,/*implementations*/
+    .shopping__item--add input,/*implementations*/
+    .shopping__count--add input {
       color: inherit;
       font-family: inherit;
       font-size: 1.2rem;
@@ -490,3 +493,24 @@ body {
   .shopping__item:hover .shopping__delete {
     opacity: 1;
     visibility: visible; }
+
+
+/*implementations*/
+.shopping__item--add{
+  margin-top: 1rem;
+}
+.shopping__item--add .shopping__description--add{
+  position: relative;
+  top: -2.5rem;
+  left: 95px;
+  width: calc(100% - 95px);
+  padding: .35rem .5rem;
+  border: 1px solid #F2EFEE;
+  text-align: left;
+}
+.shopping__count--add{
+  width: 90px;
+}
+.shopping__count--add input
+{
+  width: 40px;}

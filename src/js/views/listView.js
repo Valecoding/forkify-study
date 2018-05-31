@@ -29,3 +29,22 @@ export const deleteAllItems = () => {
     const item = document.querySelectorAll('.shopping__item');
     Array.from(item).forEach(el => el.parentElement.removeChild(el));//преобразуем в массив потом орудуем массивом
 };
+
+//Implementations
+export const renderItemDeleteBtn = () => {
+    const markup = `
+                <button class="btn-small item__btn--delete" style="min-width: 190px; width: 100%;margin-left:auto;margin-right:auto;margin-top: 2rem;">
+                    <svg class="search__icon">
+                        <use href="img/icons.svg#icon-circle-with-cross"></use>
+                    </svg>
+                    <span>delete all items</span>
+                </button>
+    `;
+    elements.delAddshoppingList.insertAdjacentHTML('beforeend', markup);
+};
+
+//delete button
+export const deleteItemDeleteBtn = () =>{
+    const el =document.querySelector('.item__btn--delete');
+    if(el) el.parentElement.removeChild(el);
+};
