@@ -188,9 +188,34 @@ elements.shopping.addEventListener('click', e => {
     }
 });
 //Implementations
-//Delete all items
+//Delete all/Add new items
+
+//function to add items
+const addNewItemControl = ()=>{
+    //add to state
+    const count = elements.addShoppingListCount.value;
+    const unit = elements.addShoppingListUnit.value;
+    const des = elements.addShoppingListDescription.value;
+
+    // Create a new list IF there in none yet
+    if (!state.list) state.list = new List();
+    // Add ingredient to the state
+    const item = state.list.addItem(count,unit,des);
+    //Clean and focus input
+    elements.addShoppingListDescription.value = '';
+    elements.addShoppingListDescription.focus();
+
+    //add to UI
+    const el = document.querySelector('.item__btn--delete');
+    if (!el) listView.renderItemDeleteBtn();
+    listView.renderItem(item);
+    // console.log(state.list);
+};
+
+
 //render button
 if(state.list) listView.renderItemDeleteBtn();
+
 //add eventlistener for implementations
 elements.delAddshoppingList.addEventListener('click', e => {
     if (e.target.matches('.item__btn--delete, .item__btn--delete *')) {
@@ -201,24 +226,36 @@ elements.delAddshoppingList.addEventListener('click', e => {
         listView.deleteItemDeleteBtn();
         console.log(state.list);
     } else if (e.target.matches('.item__btn--add, .item__btn--add *')){
-        //add to state
-        const count = elements.addShoppingListCount.value;
-        const unit = elements.addShoppingListUnit.value;
-        const des = elements.addShoppingListDescription.value;
-
-            // Create a new list IF there in none yet
-            if (!state.list) state.list = new List();
-            // Add ingredient to the state
-            const item = state.list.addItem(count,unit,des);
-
-        //add to UI
-        // if(!document.querySelector('.btn-small').classList.contains('item__btn--delete')) listView.renderItemDeleteBtn();
-        const el = document.querySelector('.item__btn--delete');
-        if (!el) listView.renderItemDeleteBtn();
-        listView.renderItem(item);
-        console.log(state.list);
+       addNewItemControl();
     }
 });
+
+//event on keypress
+elements.addShoppingListDescription.addEventListener('keypress', (event) => {
+    if (event.keyCode === 13 || event.which === 13) {
+        addNewItemControl();
+    }
+});
+
+//Implementations
+// Restore list recipes on page load
+//Вешаем ивент на перезагрузку страницы
+window.addEventListener('load', () => {
+
+    //Add list controller on 'load' event
+    state.list = new List();
+
+    // Restore likes - восстанавливаем данные в state
+    state.list.readStorage();
+
+    // Toggle del all button - проверка нужна ли кнопка если что то есть в локал стораж
+    if (state.list.getNumItems()>0) listView.renderItemDeleteBtn();
+
+    // Render the existing likes - создаем снова список лайков из state
+    state.list.items.forEach(item => listView.renderItem(item));
+
+});
+
 
 
 
@@ -294,8 +331,10 @@ elements.recipe.addEventListener('click', e => {
 } else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
     //Add ingredients to list
     controlList();
-    const el = document.querySelector('.item__btn--delete');
+
+    const el = document.querySelector('.item__btn--delete');//Implementations
     if (!el) listView.renderItemDeleteBtn();//Implementations добавляем сразу кнопку удалить все
+
     } else if (e.target.matches('.recipe__love, .recipe__love *')){
     //Like controller
     controlLike();

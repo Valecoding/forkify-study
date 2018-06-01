@@ -7,9 +7,9 @@ export const elements = {
     recipe: document.querySelector('.recipe'),
     shopping: document.querySelector('.shopping__list'),
     likesList: document.querySelector('.likes__list'),
-    addShoppingListCount: document.querySelector('.shopping__item--add__count'),
-    addShoppingListUnit: document.querySelector('.shopping__item--add__unit'),
-    addShoppingListDescription: document.querySelector('.shopping__description--add'),
+    addShoppingListCount: document.querySelector('.shopping__item--add__count'),//Implementations
+    addShoppingListUnit: document.querySelector('.shopping__item--add__unit'),//Implementations
+    addShoppingListDescription: document.querySelector('.shopping__description--add'),//Implementations
     delAddshoppingList: document.querySelector('.implementations')//Implementations
 
 };

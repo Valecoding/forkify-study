@@ -13,6 +13,11 @@ export default class List{
             ingredient
         };
         this.items.push(item);
+
+        //Implementations
+        // Persist data in localStorage
+        this.persistData();
+
         return item;
     }
 
@@ -22,6 +27,10 @@ export default class List{
         // [2,4,8] splice(1,2)-> returns [4,8], original array is [2]
         // [2,4,8] slice(1,1)-> returns 4, original array is [2,4,8]
         this.items.splice(index, 1);
+
+        //Implementations
+        // Persist data in localStorage
+        this.persistData();
     }
 
     updateCount(id, newCount){
@@ -31,6 +40,26 @@ export default class List{
     //Implementations
     deleteAllItems(){
         this.items.splice(0,this.items.length);
+        // Persist data in localStorage
+        this.persistData();
+    }
+
+    //Implementations
+    getNumItems() {
+        return this.items.length;
+    }
+
+    //метод для сохранения в localStorage
+    persistData() {
+        localStorage.setItem('shoplist', JSON.stringify(this.items)); //переводим наш массив данных в стринг
+    }
+
+    //метод что бы получить даненые из локалСторадж данные после перезагрузки страницы
+    readStorage() {
+        const storage = JSON.parse(localStorage.getItem('shoplist'));//ковектируем обратно со Стринга в данные
+
+        // Restoring likes from the localStorage
+        if (storage) this.items = storage; //проверка если в локалСторадж данные
     }
 
 }

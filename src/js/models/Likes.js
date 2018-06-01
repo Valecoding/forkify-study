@@ -7,7 +7,7 @@ export default class Likes {
         const like = { id, title, author, img };
         this.likes.push(like);
 
-        // Perist data in localStorage
+        // Persist data in localStorage
         this.persistData();
 
         return like;
